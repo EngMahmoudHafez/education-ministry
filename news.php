@@ -14,7 +14,7 @@ include('includes/config.php');
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>News Portal | Home Page</title>
+  <title>الاخبار</title>
 
   <!-- Bootstrap core CSS -->
   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -71,10 +71,10 @@ include('includes/config.php');
                 <a class="badge bg-secondary text-decoration-none link-light" style="color:#fff"><?php echo htmlentities($row['subcategory']); ?></a>
               </p>
 
-              <a href="news-details.php?nid=<?php echo htmlentities($row['pid']) ?>" class="btn btn-primary">Read More &rarr;</a>
+              <a href="news-details.php?nid=<?php echo htmlentities($row['pid']) ?>" class="btn btn-primary">اقرا المزيد &rarr;</a>
             </div>
             <div class="card-footer text-muted">
-              Posted on <?php echo htmlentities($row['postingdate']); ?>
+              تم النشر فى <?php echo htmlentities($row['postingdate']); ?>
 
             </div>
           </div>
@@ -87,7 +87,7 @@ include('includes/config.php');
 
 
         <ul class="pagination justify-content-center mb-4">
-          <li class="page-item"><a href="?pageno=1" class="page-link">First</a></li>
+          <li class="page-item"><a href="?pageno=1" class="page-link">الاول</a></li>
           <li class="<?php if ($pageno <= 1) {
                         echo 'disabled';
                       } ?> page-item">
@@ -95,7 +95,7 @@ include('includes/config.php');
                         echo '#';
                       } else {
                         echo "?pageno=" . ($pageno - 1);
-                      } ?>" class="page-link">Prev</a>
+                      } ?>" class="page-link">السابق</a>
           </li>
           <li class="<?php if ($pageno >= $total_pages) {
                         echo 'disabled';
@@ -104,9 +104,10 @@ include('includes/config.php');
                         echo '#';
                       } else {
                         echo "?pageno=" . ($pageno + 1);
-                      } ?> " class="page-link">Next</a>
+                      } ?> " class="page-link">التالى</a>
           </li>
-          <li class="page-item"><a href="?pageno=<?php echo $total_pages; ?>" class="page-link">Last</a></li>
+          <li class="page-item"><a href="?pageno=<?php echo $total_pages; ?>" class="page-link">الاخير</a>
+          </li>
         </ul>
 
       </div>

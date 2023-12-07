@@ -42,7 +42,7 @@ if (isset($_POST['submit'])) {
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>News Portal | Contact us</title>
+    <title>وزارة التعليم| تواصل معنا</title>
 
     <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -75,47 +75,52 @@ if (isset($_POST['submit'])) {
                     <h5 class="card-header">تواصل معنا</h5>
                     <div class="card-body">
                         <form name="Comment" method="post" onsubmit="return validateForm()">
-                            <input type="hidden" name="csrftoken" value="<?php echo htmlentities($_SESSION['token']); ?>" />
+                            <input type="hidden" name="csrftoken"
+                                value="<?php echo htmlentities($_SESSION['token']); ?>" />
                             <div class="form-group">
-                                <input type="text" name="name" class="form-control" placeholder="ادخل اسمك بالكامل" required>
+                                <input type="text" name="name" class="form-control" placeholder="ادخل اسمك بالكامل"
+                                    required>
                             </div>
-
                             <div class="form-group">
-                                <input type="email" name="email" class="form-control" placeholder="ادخل ايميلك" required>
+                                <input type="email" name="email" class="form-control" placeholder="ادخل ايميلك"
+                                    required>
                             </div>
-
                             <div class="form-row">
                                 <div class="form-group col-md-6">
-                                    <input type="text" name="phone" class="form-control" placeholder="ادخل هاتفك" required>
+                                    <input type="text" name="phone" class="form-control" placeholder="ادخل هاتفك"
+                                        required>
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <input type="text" name="ssn" class="form-control" placeholder="ادخل هويتك" required>
+                                    <input type="text" name="ssn" class="form-control" placeholder="ادخل هويتك"
+                                        required>
                                 </div>
                             </div>
-
-
-
                             <div class="form-group">
                                 <label for="complaintType">نوع الاتصال:</label>
                                 <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="complaintType" id="complaint" value="شكوى" checked>
+                                    <input class="form-check-input" type="radio" name="complaintType" id="complaint"
+                                        value="شكوى" checked>
                                     <label class="form-check-label" style="margin-right: 2.5%">شكوى</label>
                                 </div>
                                 <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="complaintType" id="suggestion" value="اقتراح">
+                                    <input class="form-check-input" type="radio" name="complaintType" id="suggestion"
+                                        value="اقتراح">
                                     <label class="form-check-label" style="margin-right: 2.5%">اقتراح</label>
                                 </div>
                                 <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="complaintType" id="inquiry" value="استفسار">
+                                    <input class="form-check-input" type="radio" name="complaintType" id="inquiry"
+                                        value="استفسار">
                                     <label class="form-check-label" style="margin-right: 2.5%">استفسار</label>
                                 </div>
                                 <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="complaintType" id="report" value="بلاغ">
+                                    <input class="form-check-input" type="radio" name="complaintType" id="report"
+                                        value="بلاغ">
                                     <label class="form-check-label" style="margin-right: 2.5%">بلاغ</label>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <textarea class="form-control" name="content" rows="3" placeholder="الموضوع" required></textarea>
+                                <textarea class="form-control" name="content" rows="3" placeholder="الموضوع"
+                                    required></textarea>
                             </div>
                             <button type="submit" class="btn btn-primary" name="submit">تأكيد</button>
                         </form>
@@ -139,41 +144,36 @@ if (isset($_POST['submit'])) {
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script>
-        function validateForm() {
-            var name = document.forms["Comment"]["name"].value;
-            var email = document.forms["Comment"]["email"].value;
-            var phone = document.forms["Comment"]["phone"].value;
-            var ssn = document.forms["Comment"]["ssn"].value;
-            var comment = document.forms["Comment"]["comment"].value;
+    function validateForm() {
+        var name = document.forms["Comment"]["name"].value;
+        var email = document.forms["Comment"]["email"].value;
+        var phone = document.forms["Comment"]["phone"].value;
+        var ssn = document.forms["Comment"]["ssn"].value;
+        var comment = document.forms["Comment"]["comment"].value;
 
-            // Check if any of the required fields is empty
-            if (name === "" || email === "" || phone === "" || ssn === "" || comment === "") {
-                alert("يرجى ملء جميع الحقول المطلوبة");
-                return false;
-            }
-
-            // Check if the phone number is 11 digits
-            if (phone.length !== 12) {
-                alert("يجب أن يكون رقم الهاتف مكونًا من 11 رقمًا");
-                return false;
-            }
-
-            // Check if the SSN is 15 digits
-            if (ssn.length !== 15) {
-                alert("يجب أن يكون الرقم القومي مكونًا من 15 رقمًا");
-                return false;
-            }
-
-            // Check if the email is in a valid format
-            var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if (!emailRegex.test(email)) {
-                alert("الرجاء إدخال عنوان بريد إلكتروني صالح");
-                return false;
-            }
-
-
-            return true;
+        if (name === "" || email === "" || phone === "" || ssn === "" || comment === "") {
+            alert("يرجى ملء جميع الحقول المطلوبة");
+            return false;
         }
+
+        if (phone.length !== 12) {
+            alert("يجب أن يكون رقم الهاتف مكونًا من 11 رقمًا");
+            return false;
+        }
+
+        if (ssn.length !== 15) {
+            alert("يجب أن يكون الرقم القومي مكونًا من 15 رقمًا");
+            return false;
+        }
+
+        var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(email)) {
+            alert("الرجاء إدخال عنوان بريد إلكتروني صالح");
+            return false;
+        }
+
+        return true;
+    }
     </script>
 
 </body>
